@@ -12,20 +12,16 @@ Counties <- rbind(counties2020,counties2021, counties2022, Recent, Live)
 
 #2 
 library(dplyr)
-sample <- filter(county == "Lehigh" & state == "Pennsylvania")%>%
-  
-  distinct date
-  Counties
-Counties_distinct          distinct () %>%
-          filter(county == "Lehigh" & state == "Pennsylvania")%>%
-          mutate (incr_cases = (cases-lag(cases)))
+library(tidyverse)
+sample_filter <- filter(Counties, county == "Lehigh" & state == "Pennsylvania")
+sample_distinct <- distinct(sample_filter, date, .keep_all = TRUE)
+sample_mutate <- mutate (sample_distinct, incr_cases = (cases-lag(cases)))
 #3
 library(ggplot2)
-p <- ggplot(data = sample,
+p <- ggplot(data = sample_mutate,
             mapping = aes(x = date,
-                          y = incr_cases,
-                          group = 1))
+                          y = incr_cases))
 p + geom_line(color="blue")+
-    labs(x = "Date", y = "New Cases Reported sample",
+    labs(x = "Date", y = "New Cases Reported",
        title = "COVID-19 Cases Reported in Lehigh, PA")
 
