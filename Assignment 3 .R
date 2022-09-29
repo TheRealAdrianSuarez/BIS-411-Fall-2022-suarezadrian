@@ -1,3 +1,5 @@
+#Updated Assignment 3
+
 #1 
 install.packages("here")
 library(here)
@@ -16,6 +18,7 @@ library(tidyverse)
 sample_filter <- filter(Counties, county == "Lehigh" & state == "Pennsylvania")
 sample_distinct <- distinct(sample_filter, date, .keep_all = TRUE)
 sample_mutate <- mutate (sample_distinct, incr_cases = (cases-lag(cases)))
+
 #3
 library(ggplot2)
 p <- ggplot(data = sample_mutate,
