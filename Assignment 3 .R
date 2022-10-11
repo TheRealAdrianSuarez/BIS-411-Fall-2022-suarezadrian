@@ -9,7 +9,7 @@ Recent <- read.csv(here("covid-19-data", "us-counties-recent.csv"))
 counties2020 <- read.csv(here("covid-19-data", "us-counties-2020.csv"))
 counties2021 <- read.csv(here("covid-19-data","us-counties-2021.csv"))
 counties2022 <- read.csv(here("covid-19-data","us-counties-2022.csv"))
-
+# Failed to use rae_csv() or convert dates   -20
 Counties <- rbind(counties2020,counties2021, counties2022, Recent, Live)
 
 #2 
