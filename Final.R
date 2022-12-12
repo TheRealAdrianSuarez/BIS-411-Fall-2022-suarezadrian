@@ -1,3 +1,4 @@
+# Data file not pushed to repo as per instructions   -10
 # First, clear memory and the Console  
 
 rm(list=ls(all=TRUE)) 
